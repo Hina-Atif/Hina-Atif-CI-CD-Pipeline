@@ -1,0 +1,23 @@
+// Jenkinsfile
+
+pipeline {
+    agent any
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Pull the Docker image
+                    sh 'docker build -t hina-atif-ci-cd-app .'
+                }
+            }
+        }
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    // Run the Docker container
+                    sh 'docker run -d -p 5000:5000 hina-atif-ci-cd-app'
+                }
+            }
+        }
+    }
+}
