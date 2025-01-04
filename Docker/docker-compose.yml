@@ -1,0 +1,12 @@
+# docker-compose.yml
+
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: hina-atif-ci-cd-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
